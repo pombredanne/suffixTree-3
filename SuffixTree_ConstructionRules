@@ -1,0 +1,22 @@
+All below rules are adapted from the reference listed at the bottom of this document.
+
+Rule 1:
+After an insertion from root:
+	active_node remains root
+	active_edge is set to the first character of the new suffix we need to insert
+	active_length is reduced by 1
+
+Rule 2:
+If we create a new internal node OR make an inserter from an internal node, and this is not the first SUCH internal node at current step, then we link the previous SUCH node with THIS one through a suffix link.
+
+Rule 3:
+After splitting an edge from an active_node that is not the root node, we follow the suffix link going out of that node, if there is any, and reset the active_node to the node it points to. If there is no suffix link, we set the active_node to the root. active_edge and active_length remain unchanged.
+
+Observation 1
+When the final suffix we need to insert is found to exist in the tree already, the tree itself is not changed at all (we only update the active point and remainder).
+
+Observation 2:
+If at some point active_length is greater or equal to the length of current edge (edge_length), we move our active point down until edge_length is not strictly greater than active_length.
+
+Reference:
+http://stackoverflow.com/questions/9452701/ukkonens-suffix-tree-algorithm-in-plain-english
