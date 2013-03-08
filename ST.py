@@ -210,7 +210,6 @@ class SuffixTree:
         for child in self.nodes[nodeID].next.values():
             self.printSLinks(child, buffer)
 
-#def compare_str():
 
 def search(ST, node, tString, i, start, end):
     """
