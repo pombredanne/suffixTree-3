@@ -1,0 +1,47 @@
+digraph {
+	rankdir = LR;
+	edge [arrowsize=0.4,fontsize=10]
+	node1 [label="",style=filled,fillcolor=lightgrey,shape=circle,width=.1,height=.1];
+//------leaves------
+	node14 [label="",shape=point]
+	node8 [label="",shape=point]
+	node3 [label="",shape=point]
+	node2 [label="",shape=point]
+	node17 [label="",shape=point]
+	node15 [label="",shape=point]
+	node12 [label="",shape=point]
+	node6 [label="",shape=point]
+	node10 [label="",shape=point]
+	node4 [label="",shape=point]
+//------internal nodes------
+	node13 [label="",style=filled,fillcolor=lightgrey,shape=circle,width=.07,height=.07]
+	node7 [label="",style=filled,fillcolor=lightgrey,shape=circle,width=.07,height=.07]
+	node16 [label="",style=filled,fillcolor=lightgrey,shape=circle,width=.07,height=.07]
+	node5 [label="",style=filled,fillcolor=lightgrey,shape=circle,width=.07,height=.07]
+	node11 [label="",style=filled,fillcolor=lightgrey,shape=circle,width=.07,height=.07]
+	node9 [label="",style=filled,fillcolor=lightgrey,shape=circle,width=.07,height=.07]
+//------edges------
+	node1 -> node13 [label="i",weight=3]
+	node13 -> node14 [label="ppi",weight=3]
+	node13 -> node7 [label="ssi",weight=3]
+	node7 -> node8 [label="ppi",weight=3]
+	node7 -> node3 [label="ssippi",weight=3]
+	node1 -> node2 [label="mississippi",weight=3]
+	node1 -> node16 [label="p",weight=3]
+	node16 -> node17 [label="i",weight=3]
+	node16 -> node15 [label="pi",weight=3]
+	node1 -> node5 [label="s",weight=3]
+	node5 -> node11 [label="i",weight=3]
+	node11 -> node12 [label="ppi",weight=3]
+	node11 -> node6 [label="ssippi",weight=3]
+	node5 -> node9 [label="si",weight=3]
+	node9 -> node10 [label="ppi",weight=3]
+	node9 -> node4 [label="ssippi",weight=3]
+//------suffix links------
+	node13 -> node1 [label="",weight=1,style=dotted]
+	node7 -> node9 [label="",weight=1,style=dotted]
+	node16 -> node1 [label="",weight=1,style=dotted]
+	node5 -> node1 [label="",weight=1,style=dotted]
+	node11 -> node13 [label="",weight=1,style=dotted]
+	node9 -> node11 [label="",weight=1,style=dotted]
+}
