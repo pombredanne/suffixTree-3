@@ -4,21 +4,24 @@ Linear time implementation of Suffix Tree (Ukkonnen's algorithm)
 
 Ukkonnen's algorithm to implementation of Suffix Tree in 
 linear time is well known. However, based on my past one month's
-research either on academic paper or goolging on various forums, 
-I found out that the implementation detail is never clear.
-Text book, like Dan Gusfield's and others give you a general idea on how a
-suffix tree can ben built but glossing over a lot implementation details,
-without which you basically very difficult to implement it.
+research both on academic paper and goolging on various forums, 
+I found out that the implementation detail has never been crystal 
+clearly being presented. Text book, like Dan Gusfield's and others 
+give you a general idea on how a suffix tree can ben built in 
+linear time but glossing over a lot of implementation details,
+without which it is basically very difficult to implement suffix 
+tree.
 
-It's been quite painful experience to implement the suffix tree. After spending
-tens of hours in reading various material, Below I listing out
-two main resources that I think they were, or were trying to, giving clear describptions on how to 
+It's been a quite painful experience to figure out the details of 
+implementation. After spending tens of hours in reading various 
+materials, below I am listing out two main resources that I think 
+they were, or were trying to, giving clear describptions on how to 
 implement suffix tree in great detail.
-http://stackoverflow.com/questions/9452701/ukkonens-suffix-tree-algorithm-in-plain-english
-http://yeda.cs.technion.ac.il/~yona/suffix_tree/index.html
+[1] http://stackoverflow.com/questions/9452701/ukkonens-suffix-tree-algorithm-in-plain-english
+[2] http://yeda.cs.technion.ac.il/~yona/suffix_tree/index.html
+
 
 Here are rules and observations I used to implement the suffix tree
-
 Rule 1:
 After an insertion from root:
 	active_node remains root
@@ -36,10 +39,6 @@ When the final suffix we need to insert is found to exist in the tree already, t
 
 Observation 2:
 If at some point active_length is greater or equal to the length of current edge (edge_length), we move our active point down until edge_length is not strictly greater than active_length.
-
-Reference:
-http://stackoverflow.com/questions/9452701/ukkonens-suffix-tree-algorithm-in-plain-english
-
 """
 
 import sys
