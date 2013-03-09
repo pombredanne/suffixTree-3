@@ -120,6 +120,7 @@ class SuffixTree:
         self.active_edge = 0
         self.active_len = 0
         self.remainder = 0
+        self.memSize = 0
         self.end = len(self.string) 
         self.needSuffixLink = 0
         for i in self.string:
@@ -292,7 +293,10 @@ class SuffixTree:
                         node = tNode
                 else:
                     return False
-           
+    def memStatistics(self):
+      for k, v in vars(self).items():
+        self.memSize += sys.getsizeof(v)
+       
 def check_identity(tString, qString, qStart):
     """
     return 0 if not equal, otherwise number of steps moved
@@ -307,11 +311,6 @@ def check_identity(tString, qString, qStart):
             else:
                 return 0
     return step
-
-def size_info(string, ST):
-    str_len = str(len(string))
-    mem_size = str(sys.getsizeof(ST))
-    e.write("\t".join([str_len, mem_size]) + "\n")
 
 if __name__ == '__main__':
     o = sys.stdout
@@ -330,7 +329,8 @@ if __name__ == '__main__':
             help="query sequence you try to known whether is a substring")
     parser.add_argument('-o', help="specify a output file name for dot file. Default=[sty.dto]", 
             default = "sty.dot")
-   
+    parser.add_argument('-r', '--report', default=False, action='store_true', help="report costed memory " +
+            "size. Default=[False]")
     parser.add_argument('-g', '--graph', default=False, action='store_true', help="whether to print the " +
             "dot graph file. Default=[False]")
     args = parser.parse_args()
@@ -338,11 +338,12 @@ if __name__ == '__main__':
     check_args(args)
     string = get_str(args)
     suffixtree= SuffixTree(string)
-    str_len = str(len(string))
-    mem_size = str(sys.getsizeof(suffixtree))
-    e.write("\t".join([str_len, mem_size]) + "\n")
+    if args.report:
+        suffixtree.memStatistics()
+        str_len = str(len(string))
+        mem_size = str(suffixtree.memSize)
+        e.write("\t".join([str_len, mem_size]) + "\n")
 
-#    size_info(string, suffixtree)
     if args.graph:
         O = open(args.o, 'w')
         suffixtree.printTree(O)

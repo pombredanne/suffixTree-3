@@ -44,27 +44,27 @@ function test_substring {
 }
 
 function increase_size {
-  tr -d '[ \n\t]' <SuffixTree.py >testfile
+  tr -d '[ \n\t#$]' <SuffixTree.py >testfile
   echo now the size of testfile is: `awk '{print length()}' <testfile`
   for i in `jot - 1 6`
   do
       cat testfile >tmp
       cat tmp >>testfile
   done
-  tr -d '[ \n\t]'  <testfile >tmp
+  tr -d '[ \n\t#$]'  <testfile >tmp
   mv tmp testfile
   echo now the size of testfile is: `awk '{print length()}' <testfile`
 }
+
 function test_size {
   for i in 10 100 1000 10000 100000;
   do
       filename=c"$i"
       cut -c1-"$i" testfile >"$filename"
-     "./$prog" -f "$filename"
+     "./$prog" -f "$filename" -r
   done
-
-# "./$prog" -f mississipi -q mississippi
 }
+
 #test_correctness $*
 #test_findLongestStr
 #plot
