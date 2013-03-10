@@ -29,6 +29,7 @@ function test_findLongestStr(){
   "./$prog" -s missi ssi
   "./$prog" -s abchfefg ebcdabcefg
   "./$prog" -s mississipi  asssiasdf 
+  "./$prog" -f Seq Seq2 
 #    dot -Tpng -O sty.dot
 #    open sty.dot.png
 
@@ -69,5 +70,5 @@ function test_size {
 #test_findLongestStr
 #plot
 #test_substring
-increase_size
-test_size
+#increase_size
+#test_size

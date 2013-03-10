@@ -262,8 +262,8 @@ class SuffixTree:
                 if len(self.PathString(node)) > max_len:
                   max_len = len(self.PathString(node))
                   max_nodes[0] = node
-                elif len(self.PathString(node)) == max_len:
-                  max_nodes.append(node)
+#                elif len(self.PathString(node)) == max_len:
+#                  max_nodes.append(node)
         if max_nodes[0]:
           return "\t".join([self.PathString(max_node) for max_node in max_nodes])
         return ""
@@ -356,3 +356,7 @@ if __name__ == '__main__':
     if args.s and len(args.s) == 2:
         e.write("str1: %s\nstr2: %s\nLongestUniqueStr: %s\n" % (args.s[0], args.s[1], 
             suffixtree.LongestUniqueStr()))
+    if args.f and len(args.f) == 2:
+        e.write("str1: %s\nstr2: %s\nLongestUniqueStr: %s\n" % (args.f[0], args.f[1], 
+            suffixtree.LongestUniqueStr()))
+
