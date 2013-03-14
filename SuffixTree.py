@@ -29,21 +29,31 @@ After an insertion from root:
 	active_length is reduced by 1
 
 Rule 2:
-If we create a new internal node OR make an inserter from an internal node, and this is not the first SUCH internal node at current step, then we link the previous SUCH node with THIS one through a suffix link.
+If we create a new internal node OR make an inserter from an internal node, 
+and this is not the first SUCH internal node at current step, then we link 
+the previous SUCH node with THIS one through a suffix link.
 
 Rule 3:
-After splitting an edge from an active_node that is not the root node, we follow the suffix link going out of that node, if there is any, and reset the active_node to the node it points to. If there is no suffix link, we set the active_node to the root. active_edge and active_length remain unchanged.
+After splitting an edge from an active_node that is not the root node, we 
+follow the suffix link going out of that node, if there is any, and reset 
+the active_node to the node it points to. If there is no suffix link, we 
+set the active_node to the root. active_edge and active_length remain unchanged.
 
 Observation 1
-When the final suffix we need to insert is found to exist in the tree already, the tree itself is not changed at all (we only update the active point, active_len and remainder).
+When the final suffix we need to insert is found to exist in the tree already, 
+the tree itself is not changed at all (we only update the active point, 
+active_len and remainder).
 
 Observation 2:
-If at some point active_length is greater or equal to the length of current edge (edge_length), we move our active point down until edge_length is not strictly greater than active_length.
+If at some point active_length is greater or equal to the length of current 
+edge (edge_length), we move our active point down until edge_length is not 
+strictly greater than active_length.
 """
 
 import sys
 import argparse
 import itertools
+import time
 import pdb
 
 
@@ -94,7 +104,8 @@ def get_str(args):
 
 class Node(object):
   counter = itertools.count().next
-  def __init__(self, start = None, end = None, SuffixLink = None, parent = None, id = None):
+  def __init__(self, start = None, end = None, SuffixLink = None, parent = None, 
+          id = None):
     self.start = start
     self.end = end
     self.id = Node.counter()
@@ -102,7 +113,8 @@ class Node(object):
     self.parent = parent
     self.children = {}
   def __repr__(self):
-      return "Node(id=%d, start=%d, end=%d, SuffixLink=%s)" % (self.id, self.start, self.end, self.SuffixLink) 
+      return "Node(id=%d, start=%d, end=%d, SuffixLink=%s)" % (self.id, self.start, 
+              self.end, self.SuffixLink) 
   def edgeLen(self):
     return self.end - self.start 
 
@@ -192,7 +204,8 @@ class SuffixTree:
         buffer.write("digraph {\n")
         buffer.write("\trankdir = LR\n")
         buffer.write("\tedge [arrbufferwsize=0.4,fbufferntsize=10]\n")
-        buffer.write("\tnode1 [label=\"\",style=filled,fillcbufferlbufferr=lightgrey,shape=circle,width=.1,height=.1]\n")
+        buffer.write("\tnode1 [label=\"\"," + 
+                "style=filled,fillcbufferlbufferr=lightgrey,shape=circle,width=.1,height=.1]\n")
         buffer.write("//------leaves------\n")
         self.printLeaves(self.root, buffer)
         buffer.write("//------internal nbufferdes------\n")
@@ -215,7 +228,8 @@ class SuffixTree:
     def printInternalNodes(self, nodeID, buffer):
         if (not nodeID == self.root) and len(nodeID.children) > 0:
             buffer.write("\tnode"+str(nodeID.id)+
-                    " [label=\"\",style=filled,fillcolor=lightgrey,shape=circle,width=.07,height=.07]\n")
+                    " [label=\"\",style=filled,fillcolor=lightgrey,shape=circle,width=.07," +
+                    "height=.07]\n")
         for child in nodeID.children.values():
             self.printInternalNodes(child, buffer)
     def printEdges(self, nodeID, buffer):
@@ -328,20 +342,22 @@ if __name__ == '__main__':
             help="query sequence you try to known whether is a substring")
     parser.add_argument('-o', help="specify a output file name for dot file. Default=[sty.dto]", 
             default = "sty.dot")
-    parser.add_argument('-r', '--report', default=False, action='store_true', help="report costed memory " +
-            "size. Default=[False]")
-    parser.add_argument('-g', '--graph', default=False, action='store_true', help="whether to print the " +
-            "dot graph file. Default=[False]")
+    parser.add_argument('-r', '--report', default=False, action='store_true', 
+            help="report costed memory " + "size. Default=[False]")
+    parser.add_argument('-g', '--graph', default=False, action='store_true', 
+            help="whether to print the " + "dot graph file. Default=[False]")
     args = parser.parse_args()
 
     check_args(args)
     string = get_str(args)
+    start = time.time()
     suffixtree= SuffixTree(string)
+    elapsed = str("%.2f" % (time.time() - start))
     if args.report:
         suffixtree.memStatistics()
         str_len = str(len(string))
         mem_size = str(suffixtree.memSize)
-        e.write("\t".join([str_len, mem_size]) + "\n")
+        e.write("\t".join([str_len, mem_size, elapsed]) + "\n")
 
     if args.graph:
         O = open(args.o, 'w')

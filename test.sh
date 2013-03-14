@@ -47,7 +47,7 @@ function test_substring {
 function increase_size {
   tr -d '[ \n\t#$]' <SuffixTree.py >testfile
   echo now the size of testfile is: `awk '{print length()}' <testfile`
-  for i in `jot - 1 6`
+  for i in `jot - 1 7`
   do
       cat testfile >tmp
       cat tmp >>testfile
@@ -58,11 +58,29 @@ function increase_size {
 }
 
 function test_size {
-  for i in 10 100 1000 10000 100000;
+
+  testdir="testdir"
+  if [[ -d "$testdir" ]]
+  then
+      rm -rf "$testdir"
+      mkdir "$testdir"
+  else
+      mkdir "$testdir"
+  fi
+
+  result="result"
+  if [[ -f "$result" ]]
+  then
+      rm -f "$result"
+  fi
+
+  for i in `jot - 1 1000001 5000`;
+#  for i in `jot - 1 5 1`;
   do
       filename=c"$i"
-      cut -c1-"$i" testfile >"$filename"
-     "./$prog" -f "$filename" -r
+#      echo  cut -c1-"$i" testfile
+      cut -c1-"$i" testfile >"$testdir/$filename"
+     "./$prog" -f "$testdir/$filename" -r 2>>"$result"
   done
 }
 
@@ -71,4 +89,4 @@ function test_size {
 #plot
 #test_substring
 #increase_size
-#test_size
+test_size
