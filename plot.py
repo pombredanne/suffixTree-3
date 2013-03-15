@@ -26,11 +26,11 @@ fig = plt.figure()
 ax1 = fig.add_subplot(111)
 ax1.plot(ticks,values, 'ro--')
 ax1.set_xlabel("length of string")
-ax1.set_ylabel("MemSize Cost")
+ax1.set_ylabel("MemSize Cost (bytes)")
 ax2=ax1.twinx()
 s2 = times
 ax2.plot(ticks, s2, 'bx--')
-ax2.set_ylabel("time elapased")
+ax2.set_ylabel("time elapased (s)")
 for t2 in ax2.get_yticklabels():
     t2.set_color('b')
 plt.title("String size VS Time and Space")

@@ -1,5 +1,7 @@
 #!/usr/bin/env python2.7
 """
+Author: Zhigang Wu
+Contact: zhigang.wu@cs.ucr.edu
 Linear time implementation of Suffix Tree (Ukkonnen's algorithm)
 
 Ukkonnen's algorithm to implementation of Suffix Tree in 
@@ -306,6 +308,7 @@ class SuffixTree:
                         node = tNode
                 else:
                     return False
+
     def memStatistics(self):
       for k, v in vars(self).items():
         self.memSize += sys.getsizeof(v)
