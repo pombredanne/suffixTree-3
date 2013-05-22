@@ -1,7 +1,7 @@
 #!/usr/bin/env python2.7
 """
 Author: Zhigang Wu
-Contact: zhigang.wu@cs.ucr.edu
+Contact: zhigang.wu@email.ucr.edu
 Linear time implementation of Suffix Tree (Ukkonnen's algorithm)
 
 Ukkonnen's algorithm to implementation of Suffix Tree in 
