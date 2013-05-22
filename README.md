@@ -20,7 +20,7 @@ ees also provided one of the first linear-time solutions for the longest common
 substring problem. These speedups come at a cost: storing a string's suffix tree
  typically requires significantly more space than storing the string itself.
 
-
+[Wikipedia Linke](http://en.wikipedia.org/wiki/Suffix_tree)
 #Author
 Zhigang Wu
 
