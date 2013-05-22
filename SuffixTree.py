@@ -8,9 +8,9 @@ Ukkonnen's algorithm to implementation of Suffix Tree in
 linear time is well known. However, based on my past one month's
 research both on academic paper and goolging on various forums, 
 I found out that the implementation detail has never been crystal 
-clearly being presented. Text book, like Dan Gusfield's and others 
-give you a general idea on how a suffix tree can ben built in 
-linear time but glossing over a lot of implementation details,
+clearly presented. Text books, by Dan Gusfield's and others, generally 
+give you an idea on how a suffix tree can ben built in 
+linear time but glossing over too many implementation details,
 without which it is basically very difficult to implement suffix 
 tree.
 
