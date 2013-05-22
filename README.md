@@ -1,6 +1,4 @@
 #Linear Time implementation of Suffix Tree
-===========================================
-
 
 ### What is suffix tree? What is it good for?
 
@@ -24,7 +22,6 @@ substring problem. These speedups come at a cost: storing a string's suffix tree
 
 
 #Author
-=========
 Zhigang Wu
 
 Deparment of Botany and Plant Sciences
@@ -33,7 +30,6 @@ University of California Riverside
 
 
 #LICENSE
-=========
 BSD LICENSE
 
 
