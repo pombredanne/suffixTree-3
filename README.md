@@ -1,6 +1,6 @@
 #Linear Time implementation of Suffix Tree
 
-### What is suffix tree? What is it good for?
+### What is [suffix tree](http://en.wikipedia.org/wiki/Suffix_tree)? What is it good for?
 
 In computer science, a suffix tree (also called PAT tree or, in an earlier form,
  position tree) is a data structure that presents the suffixes of a given string
@@ -20,7 +20,6 @@ ees also provided one of the first linear-time solutions for the longest common
 substring problem. These speedups come at a cost: storing a string's suffix tree
  typically requires significantly more space than storing the string itself.
 
-[Wikipedia Linke](http://en.wikipedia.org/wiki/Suffix_tree)
 #Author
 Zhigang Wu
 
