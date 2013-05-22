@@ -1,4 +1,4 @@
-Linear Time implementation of Suffix Tree
+#Linear Time implementation of Suffix Tree
 ===========================================
 
 
@@ -23,7 +23,7 @@ substring problem. These speedups come at a cost: storing a string's suffix tree
  typically requires significantly more space than storing the string itself.
 
 
-Author
+#Author
 =========
 Zhigang Wu
 
@@ -32,7 +32,7 @@ Deparment of Botany and Plant Sciences
 University of California Riverside
 
 
-LICENSE
+#LICENSE
 =========
 BSD LICENSE
 
