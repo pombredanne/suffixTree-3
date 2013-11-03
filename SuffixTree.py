@@ -9,7 +9,7 @@ linear time is well known. However, based on my past one month's
 research both on academic paper and goolging on various forums, 
 I found out that the implementation detail has never been crystal 
 clearly presented. Text books, by Dan Gusfield's and others, generally 
-give you an idea on how a suffix tree can ben built in 
+give you an idea on how a suffix tree can be built in 
 linear time but glossing over too many implementation details,
 without which it is basically very difficult to implement suffix 
 tree.
@@ -17,7 +17,7 @@ tree.
 It's been a quite painful experience to figure out the details of 
 implementation. After spending tens of hours in reading various 
 materials, below I am listing out two main resources that I think 
-they were, or were trying to, giving clear describptions on how to 
+they were, or were trying to, giving clear descriptions on how to 
 implement suffix tree in great detail.
 [1] http://stackoverflow.com/questions/9452701/ukkonens-suffix-tree-algorithm-in-plain-english
 [2] http://yeda.cs.technion.ac.il/~yona/suffix_tree/index.html
