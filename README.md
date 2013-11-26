@@ -14,13 +14,13 @@ such that each suffix of  corresponds to exactly one path from the tree's root t
 a leaf. It is thus a radix tree (more specifically, a Patricia tree) for the 
 suffixes of. A suffix tree is a special kind of a Trie.
 
-Constructing such a tree for the string  takes time and space linear in the length of 
-the string. Once constructed, several operations can be performed quickly, for 
-instance locating a substring in, locating a substring if a certain number of 
-mistakes are allowed, locating matches for a regular expression pattern etc. Suffix 
-trees also provided one of the first linear-time solutions for the longest common 
-substring problem. These speedups come at a cost: storing a string's suffix tree
- typically requires significantly more space than storing the string itself.
+Constructing such a tree for the string takes time and space linear to the length of 
+string. Once constructed, several operations can be performed quickly. For 
+instance locating a substring allowing or not allowing certain number of mismatches, 
+locating matches using a regex pattern etc. Suffix trees also provided one of the 
+first linear-time solutions for the longest common substring problem. These speedups 
+come at a cost: storing a string's suffix tree typically requires significantly more 
+space than storing the string itself.
 
 Requirements
 =============
