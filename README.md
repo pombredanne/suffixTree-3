@@ -12,10 +12,11 @@ In computer science, a suffix tree (also called PAT tree or, in an earlier form,
 The suffix tree for a string  is a tree whose edges are labeled with strings, 
 such that each suffix of  corresponds to exactly one path from the tree's root to 
 a leaf. It is thus a radix tree (more specifically, a Patricia tree) for the 
-suffixes of. A suffix tree is a special kind of a Trie.
+suffixes of *S*. A suffix tree is a special kind of a Trie.
 
 Constructing such a tree for the string takes time and space linear to the length of 
-string. Once constructed, several operations can be performed quickly. For 
+string. Once constructed, several operations can be performed quickly (By quickly I mean, 
+the search time is in linear with the **QUERY** string). For 
 instance locating a substring allowing or not allowing certain number of mismatches, 
 locating matches using a regex pattern etc. Suffix trees also provided one of the 
 first linear-time solutions for the longest common substring problem. These speedups 
