@@ -1,6 +1,8 @@
 Linear Time implementation of Suffix Tree
 =========================================
+![alt text](http://upload.wikimedia.org/wikipedia/commons/d/d2/Suffix_tree_BANANA.svg "Logo Title Text 1")
 
+This pic is from [wikipedia](http://upload.wikimedia.org/wikipedia/commons/d/d2/Suffix_tree_BANANA.svg)
 What is [suffix tree](http://en.wikipedia.org/wiki/Suffix_tree)? What is it good for?
 =====================================================================================
 
